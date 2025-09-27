@@ -8,28 +8,28 @@ const simbolos = {
   };
   
   function decodeSpell(cadena) {
-    let total = 0;
-  
-    for (let i = 0; i < cadena.length; i++) {
-      let actual = simbolos[cadena[i]];
-      let siguiente = simbolos[cadena[i + 1]];
-  
-      // Si el símbolo no existe en el diccionario → error
-      if (actual === undefined) {
-        return NaN;
-      }
-  
-      // Si el siguiente es mayor → restar
-      if (siguiente && actual < siguiente) {
-        total -= actual;
-      } else {
-        total += actual;
-      }
+    
+  let total = 0;
+
+  for (let i = 0; i < cadena.length; i++) {
+    const actual = valores[cadena[i]];
+    const siguiente = valores[cadena[i + 1]];
+
+    // Si no existe el símbolo → conjuro corrupto
+    if (actual === undefined) {
+      return NaN;
     }
-  
-    return total;
+
+    // Si el valor actual es menor que el siguiente → se resta
+    if (siguiente !== undefined && actual < siguiente) {
+      total -= actual;
+    } else {
+      total += actual;
+    }
   }
-  
+  return total;
+}
+
   console.log(decodeSpell('☽☽☽'));   // 3
   console.log(decodeSpell('☽☾'));    // 4 (5 - 1)
   console.log(decodeSpell('☾☽'));    // 6 (5 + 1)
