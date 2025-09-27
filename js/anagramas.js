@@ -1,4 +1,5 @@
-//Reto: Anagramas
+// Reto: Anagramas
+
 
 function esAnagrama(palabra1, palabra2) {
     // Normalizamos a minúsculas
@@ -17,9 +18,6 @@ function esAnagrama(palabra1, palabra2) {
     return ordenada1 === ordenada2;
   }
   
-  // ---------------------------
-  // 🔹 Ejemplos
-  // ---------------------------
   console.log(esAnagrama("cinema", "iceman"));   // true
   console.log(esAnagrama("hello", "world"));     // false
   console.log(esAnagrama("Listen", "Silent"));   // true
